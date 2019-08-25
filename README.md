@@ -4,9 +4,9 @@
 #Reason I make this application is for practice.
 
 ### Userテーブル
-has_many :groups ,through: :group_users
-has_many :group_users
-has_many :comments
+-has_many :groups ,through: :group_users
+-has_many :group_users
+-has_many :comments
 
 |column   |type   |index|null  |unique|
 |---------|-------|-----|------|------|
@@ -14,8 +14,8 @@ has_many :comments
 |password |string |false|false |false |
 
 ### Group_userテーブル(中間テーブル)
-belongs_to :user
-belongs_to :group
+-belongs_to :user
+-belongs_to :group
 
 |column     |type   |index|null  |unique|foreign_key|
 |-----------|-------|-----|------|------|-----------|
@@ -23,17 +23,17 @@ belongs_to :group
 |user_id    |references|false|false |false |true       |
 
 ### Groupテーブル
-has_many :users,through: :group_users
-has_many :group_users
-has_many :comments
+-has_many :users,through: :group_users
+-has_many :group_users
+-has_many :comments
 
 |column|type   |index|null  |unique|
 |------|-------|-----|------|------|
 |name  |string |false|false |true  |
 
 ### Commentテーブル
-belongs_to :user
-belongs_to :group
+-belongs_to :user
+-belongs_to :group
 
 |column     |type   |index|null  |unique|foreign_key|
 |-----------|-------|-----|------|------|-----------|
