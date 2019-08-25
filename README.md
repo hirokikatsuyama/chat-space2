@@ -9,9 +9,9 @@
 |name     |string |true |false |true  |
 |password |string |false|false |false |
 ### Association
--has_many :groups ,through: :group_users
--has_many :group_users
--has_many :comments
+--has_many :groups ,through: :group_users
+--has_many :group_users
+--has_many :comments
 
 ## Group_userテーブル(中間テーブル)
 |column     |type   |index|null  |unique|foreign_key|
