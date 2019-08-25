@@ -1,24 +1,44 @@
 # README
+# chat-space2
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#Reason I make this application is for practice.
 
-Things you may want to cover:
+### Userテーブル
+has_many :groups ,through: :group_users
+has_many :group_users
+has_many :comments
 
-* Ruby version
+|column   |type   |index|null  |unique|
+|---------|-------|-----|------|------|
+|name     |string |true |false |true  |
+|password |string |false|false |false |
 
-* System dependencies
+### Group_userテーブル(中間テーブル)
+belongs_to :user
+belongs_to :group
 
-* Configuration
+|column     |type   |index|null  |unique|foreign_key|
+|-----------|-------|-----|------|------|-----------|
+|group_id   |references|true |false |false |true       |
+|user_id    |references|false|false |false |true       |
 
-* Database creation
+### Groupテーブル
+has_many :users,through: :group_users
+has_many :group_users
+has_many :comments
 
-* Database initialization
+|column|type   |index|null  |unique|
+|------|-------|-----|------|------|
+|name  |string |false|false |true  |
 
-* How to run the test suite
+### Commentテーブル
+belongs_to :user
+belongs_to :group
 
-* Services (job queues, cache servers, search engines, etc.)
+|column     |type   |index|null  |unique|foreign_key|
+|-----------|-------|-----|------|------|-----------|
+|user_id    |references|true |false |false |true       |
+|group_id   |references|true |false |false |true       |
+|comment    |text   |false|true  |false |false      |
+|image      |string |false|true  |false |false      |
 
-* Deployment instructions
-
-* ...
